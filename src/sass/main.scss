@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+}
+.container {
+  width: 600px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #000;
+  border-radius: 3px;
+
+}
+.buttons {
+  margin: 0 20px;
+}
+.button {
+  font-size: 40px;
+  color: #fff;
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background: #000;
+  border: none;
+  border-radius: 3px;
+}
+.blocks {
+
+  font-weight: bold;
+
+  width: 100%;
+}
+.blocks__item {
+  margin: 5px 0;
+  background: orange;
+  cursor: pointer;
+  font-size: 25px;
+  height: 40px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    background: gray;
+  }
+  &.blocks__item_gray {
+    background: gray;
+  }
+}
