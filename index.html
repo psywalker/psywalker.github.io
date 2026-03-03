@@ -3,42 +3,766 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Максим Усачёв — Frontend Developer</title>
+  <title>Усачёв Максим — Frontend-разработчик</title>
+  <meta name="description" content="Резюме: Усачёв Максим Николаевич — Frontend-разработчик (React / Next.js / TypeScript)" />
+
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      max-width: 800px;
-      margin: 60px auto;
-      padding: 20px;
-      line-height: 1.6;
-      color: #222;
+    :root{
+      --bg:#f3f6fb;
+      --paper:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --line:#e5e7eb;
+      --accent:#0b5a8f;
+      --accent2:#0a4a76;
+      --chip:#eef2ff;
+      --shadow: 0 10px 30px rgba(2, 6, 23, .08);
+      --radius: 18px;
     }
-    h1 {
-      margin-bottom: 5px;
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background: radial-gradient(1200px 500px at 20% 0%, #dbeafe 0%, transparent 60%),
+                  radial-gradient(1200px 500px at 80% 20%, #e0f2fe 0%, transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.55;
     }
-    h2 {
-      margin-top: 40px;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 5px;
+
+    a{ color: var(--accent); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    .wrap{
+      max-width: 1120px;
+      margin: 28px auto;
+      padding: 14px;
     }
-    .muted {
-      color: #666;
+
+    .card{
+      background: var(--paper);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      min-height: 800px;
+    }
+
+    /* Sidebar */
+    .side{
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent2) 100%);
+      color: #eaf2ff;
+      padding: 26px 22px;
+      position: relative;
+    }
+
+    .avatar{
+      width: 124px;
+      height: 124px;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 6px auto 14px;
+      border: 2px solid rgba(255,255,255,.25);
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+      background: rgba(255,255,255,.08);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:700;
+      letter-spacing:.5px;
+    }
+
+    .side h3{
+      margin: 18px 0 10px;
+      font-size: 14px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      opacity: .95;
+    }
+
+    .pill{
+      display:inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      font-weight: 700;
+      margin: 6px 0 12px;
+    }
+
+    .contact{
+      display:grid;
+      gap:10px;
+      margin-top: 10px;
+    }
+    .row{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      font-size: 14px;
+      color: rgba(234,242,255,.95);
+      word-break: break-word;
+    }
+    .ico{
+      width: 18px; height: 18px;
+      flex: 0 0 18px;
+      margin-top: 2px;
+      opacity:.95;
+    }
+    .row a{ color:#eaf2ff; text-decoration: none; border-bottom: 1px dashed rgba(234,242,255,.35); }
+    .row a:hover{ border-bottom-color: rgba(234,242,255,.8); }
+
+    .kv{
+      margin-top: 14px;
+      font-size: 13px;
+      color: rgba(234,242,255,.92);
+    }
+    .kv b{ color:#ffffff; font-weight: 800; }
+
+    .skills, .qualities{
+      margin-top: 12px;
+      display: grid;
+      gap: 12px;
+    }
+    .skill{
+      display:grid;
+      grid-template-columns: 1fr auto;
+      gap: 6px 10px;
+      align-items:center;
+    }
+    .skill .name{
+      font-size: 13px;
+      color: rgba(255,255,255,.96);
+      font-weight: 700;
+    }
+    .skill .lvl{
+      font-size: 12px;
+      color: rgba(255,255,255,.75);
+      white-space: nowrap;
+    }
+    .dots{
+      grid-column: 1 / -1;
+      display:flex;
+      gap:6px;
+      opacity: .95;
+    }
+    .dot{
+      width: 9px; height: 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.25);
+    }
+    .dot.on{ background: rgba(255,255,255,.95); }
+
+    .qualities .q{
+      font-size: 14px;
+      padding-left: 14px;
+      position: relative;
+      color: rgba(255,255,255,.92);
+    }
+    .qualities .q:before{
+      content:"";
+      position:absolute;
+      left:0; top:.65em;
+      width:6px; height:6px;
+      border-radius:999px;
+      background: rgba(255,255,255,.95);
+    }
+
+    /* Main */
+    .main{
+      padding: 26px 28px 34px;
+    }
+
+    .top{
+      display:flex;
+      gap: 18px;
+      justify-content: space-between;
+      align-items:flex-start;
+      flex-wrap: wrap;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .title h1{
+      margin:0;
+      font-size: 28px;
+      letter-spacing: .2px;
+      line-height: 1.15;
+    }
+    .title .role{
+      margin-top: 6px;
+      font-weight: 800;
+      color: var(--accent2);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .meta{
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items:center;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 10px;
+    }
+    .meta .m{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      white-space: nowrap;
+    }
+    .meta .m svg{ width: 16px; height: 16px; opacity: .8; }
+
+    .section{
+      margin-top: 18px;
+      padding-top: 10px;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+      margin: 18px 0 10px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size: 14px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent2);
+    }
+    .line{
+      height:1px;
+      background: var(--line);
+      flex: 1;
+    }
+    .badge{
+      width: 36px; height: 36px;
+      border-radius: 999px;
+      border: 2px solid rgba(11,90,143,.25);
+      display:flex; align-items:center; justify-content:center;
+      color: var(--accent2);
+      background: rgba(11,90,143,.06);
+      flex: 0 0 36px;
+    }
+
+    .about{
+      color: #111827;
+      font-size: 14.5px;
+      margin: 6px 0 0;
+    }
+    .about strong{ font-weight: 900; }
+
+    .timeline{
+      display:grid;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .job{
+      display:grid;
+      grid-template-columns: 120px 1fr;
+      gap: 14px;
+      padding: 14px 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+    }
+
+    .period{
+      color: var(--muted);
+      font-size: 13px;
+      padding-top: 3px;
+      white-space: nowrap;
+    }
+
+    .job h3{
+      margin:0;
+      font-size: 16px;
+      letter-spacing: .2px;
+    }
+    .job .company{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      flex-wrap: wrap;
+      margin-bottom: 2px;
+    }
+    .job .company a{
+      font-weight: 800;
+      color: #0f172a;
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(15,23,42,.25);
+    }
+    .job .company a:hover{ border-bottom-color: rgba(15,23,42,.6); }
+
+    .job .pos{
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 2px;
+      font-size: 13px;
+    }
+
+    .job .desc{
+      margin-top: 10px;
+      color: #111827;
+      font-size: 13.8px;
+    }
+
+    ul{
+      margin: 8px 0 0 18px;
+      padding:0;
+    }
+    li{
+      margin: 6px 0;
+    }
+    li strong{ font-weight: 900; }
+
+    .chips{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .chip{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    .links{
+      margin-top: 10px;
+      display:grid;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .note{
+      color: var(--muted);
+      font-size: 12.5px;
+      margin-top: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .card{ grid-template-columns: 1fr; }
+      .side{ border-radius: 0; }
+      .job{ grid-template-columns: 1fr; }
+      .period{ white-space: normal; }
+    }
+
+    @media print{
+      body{ background:#fff; }
+      .wrap{ margin:0; padding:0; }
+      .card{ box-shadow:none; border-radius:0; }
+      a{ text-decoration:none; color: inherit; }
     }
   </style>
 </head>
+
 <body>
+  <div class="wrap">
+    <div class="card">
 
-<h1>Максим Усачёв</h1>
-<p class="muted">Frontend Developer (React / Next.js / TypeScript)</p>
+      <!-- SIDEBAR -->
+      <aside class="side">
+        <div class="avatar" aria-label="Фото">
+          <img src="./avatar.png" alt="Фото" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
 
-<h2>Обо мне</h2>
-<p>
-Frontend-разработчик с 6+ годами коммерческого опыта...
-</p>
+        <div class="pill">Контакты</div>
 
-<h2>Контакты</h2>
-<p>Email: your@email.com</p>
-<p>GitHub: https://github.com/psywalker</p>
+        <div class="contact">
+          <div class="row">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 2h3l2 6-2 1c1 3 3 5 6 6l1-2 6 2v3c0 2-2 4-4 4C8 22 2 16 2 6c0-2 2-4 5-4Z" stroke="rgba(255,255,255,.95)" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+            <div>+7 917 521-96-62</div>
+          </div>
 
+          <div class="row">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 6h16v12H4V6Z" stroke="rgba(255,255,255,.95)" stroke-width="1.8" />
+              <path d="m4 7 8 6 8-6" stroke="rgba(255,255,255,.95)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <div><a href="mailto:psywalker09@gmail.com">psywalker09@gmail.com</a></div>
+          </div>
+
+          <div class="row">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21 3 3 11l7 2 2 7 3-4 4 3 2-16Z" stroke="rgba(255,255,255,.95)" stroke-width="1.8" stroke-linejoin="round" />
+            </svg>
+            <div><a href="https://t.me/psywalker84" target="_blank" rel="noreferrer">@psywalker84</a></div>
+          </div>
+
+          <div class="row">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 19c-4 1-4-2-6-2m12 4v-3.5c0-1 .1-1.4-.5-2 2 0 4-.5 4-4 0-1-.3-2-1-2.8.1-.5.5-1.8-.1-2.7 0 0-1-.3-3 1a10 10 0 0 0-6 0c-2-1.3-3-1-3-1-.6.9-.2 2.2-.1 2.7C5.3 10 5 11 5 12c0 3.5 2 4 4 4-.4.5-.6 1-.6 2V21" stroke="rgba(255,255,255,.95)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div><a href="https://github.com/psywalker" target="_blank" rel="noreferrer">github.com/psywalker</a></div>
+          </div>
+        </div>
+
+        <div class="kv" style="margin-top:16px;">
+          <div><b>Гражданство:</b> РФ</div>
+          <div style="margin-top:6px;"><b>Желаемая зарплата:</b> 250&nbsp;000 руб</div>
+          <div style="margin-top:6px;"><b>Занятость:</b> Полная занятость</div>
+          <div style="margin-top:6px;"><b>Переезд:</b> невозможен</div>
+        </div>
+
+        <h3>Навыки</h3>
+        <div class="skills">
+          <div class="skill">
+            <div class="name"><strong>HTML</strong>, <strong>CSS</strong>, <strong>SCSS</strong>, <strong>JavaScript</strong>, <strong>jQuery</strong></div>
+            <div class="lvl">Профессиональный</div>
+            <div class="dots" aria-label="Уровень 5 из 5">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="name"><strong>React</strong>, <strong>Next.js</strong> (App Router, SSR/ISR), <strong>Redux</strong>, <strong>Effector</strong></div>
+            <div class="lvl">Опытный</div>
+            <div class="dots" aria-label="Уровень 4 из 5">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="name"><strong>TypeScript</strong></div>
+            <div class="lvl">Опытный</div>
+            <div class="dots" aria-label="Уровень 4 из 5">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="name"><strong>REST API</strong>, <strong>GraphQL</strong></div>
+            <div class="lvl">Опытный</div>
+            <div class="dots" aria-label="Уровень 4 из 5">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="name"><strong>Git</strong>, <strong>GitHub</strong> / <strong>GitLab</strong>, <strong>Webpack</strong></div>
+            <div class="lvl">Опытный</div>
+            <div class="dots" aria-label="Уровень 4 из 5">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="name"><strong>Tailwind CSS</strong>, <strong>Storybook</strong>, <strong>Figma</strong></div>
+            <div class="lvl">Опытный</div>
+            <div class="dots" aria-label="Уровень 4 из 5">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="name"><strong>Jest</strong> (unit / integration testing), <strong>React Testing Library</strong>, <strong>Mocha</strong></div>
+            <div class="lvl">Опытный</div>
+            <div class="dots" aria-label="Уровень 4 из 5">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span>
+            </div>
+          </div>
+        </div>
+
+        <h3>Качества</h3>
+        <div class="qualities">
+          <div class="q">Ориентация на качество кода</div>
+          <div class="q">Стабильная delivery</div>
+          <div class="q">Ответственность</div>
+        </div>
+
+        <div class="note">
+          Подходит для долгосрочных продуктовых команд, где важны стабильность и предсказуемость разработки.
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="main">
+        <div class="top">
+          <div class="title">
+            <h1>УСАЧЁВ МАКСИМ НИКОЛАЕВИЧ</h1>
+            <div class="role">FRONTEND-РАЗРАБОТЧИК</div>
+
+            <div class="meta">
+              <div class="m">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 22s7-4.5 7-12a7 7 0 1 0-14 0c0 7.5 7 12 7 12Z" stroke="currentColor" stroke-width="1.7"/>
+                  <path d="M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="1.7"/>
+                </svg>
+                Москва, м. Чертановская
+              </div>
+
+              <div class="m">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="currentColor" stroke-width="1.7"/>
+                  <path d="M20 21a8 8 0 1 0-16 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                </svg>
+                Возраст: 41 год
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ABOUT -->
+        <section class="section">
+          <div class="section-head">
+            <h2>О себе</h2>
+            <div class="line"></div>
+            <div class="badge" title="Профиль">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+                <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M20 21a8 8 0 1 0-16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <p class="about">
+            Frontend-разработчик (<strong>React</strong> / <strong>Next.js</strong> / <strong>TypeScript</strong>) с 6+ годами коммерческого опыта и системным инженерным подходом к разработке интерфейсов. Обладаю глубокой базой в <strong>HTML/CSS</strong> и понимании браузерного рендеринга (сооснователь <a href="https://css-live.ru/" target="_blank" rel="noreferrer">CSS-Live</a>, автор книги по inline-форматированию). Разрабатывал highload и e-commerce решения, реализовывал полный пользовательский цикл, участвовал в развитии frontend-архитектуры и создании UI-библиотек. Специализируюсь на производительности (<strong>SSR/ISR</strong>, <strong>GraphQL</strong>), масштабируемости и стабильной delivery в продуктовых <strong>Scrum</strong>-командах.
+          </p>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section class="section">
+          <div class="section-head">
+            <h2>Опыт работы</h2>
+            <div class="line"></div>
+            <div class="badge" title="Опыт">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+                <path d="M9 6V4h6v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M4 7h16v13H4V7Z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M8 11h8M8 15h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="timeline">
+
+            <!-- Quintegro -->
+            <article class="job">
+              <div class="period">05.2021 — 01.2026</div>
+              <div>
+                <div class="company">
+                  <a href="https://www.quintegro.com/" target="_blank" rel="noreferrer">Quintegro</a>
+                </div>
+                <div class="pos">Middle+ Frontend Developer (<strong>React</strong>, <strong>Next.js</strong>)</div>
+
+                <div class="desc">
+                  Разработка маркетплейса <a href="https://www.rvrentals.com/" target="_blank" rel="noreferrer">RVRentals.com</a> (аренда автодомов в США).
+                  <ul>
+                    <li>Разрабатывал и поддерживал масштабируемое приложение на <strong>React</strong> / <strong>Next.js</strong> (<strong>App Router</strong>, <strong>SSR/ISR</strong>, <strong>Server Components</strong>, <strong>TypeScript</strong>).</li>
+                    <li>Реализовывал core user flows: search → filtering → booking → payment, покрывающие 80%+ пользовательского трафика.</li>
+                    <li>Интегрировал frontend с backend (<strong>GraphQL</strong> / <strong>REST</strong>), участвовал в проектировании API-контрактов.</li>
+                    <li>Проектировал и развивал архитектуру клиентской части (модульная структура, переиспользуемые хуки, <strong>Effector</strong>).</li>
+                    <li>Оптимизировал производительность (<strong>SSR</strong>, code splitting, render optimization, оптимизация <strong>GraphQL</strong>), сократив время загрузки на 30–40% и объём данных на 20–25%.</li>
+                    <li>Разработал и внедрил UI-библиотеку (100+ компонентов), ускорив delivery новых фич на ~20% и снизив количество UI-багов.</li>
+                    <li>Повысил покрытие тестами до 60–70% (<strong>Jest</strong>, <strong>React Testing Library</strong>), сократив регрессионные баги.</li>
+                    <li>Регулярно проводил code review (10–15 проверок изменений кода в неделю) и участвовал в техническом развитии проекта.</li>
+                    <li>Взаимодействовал с backend, QA, дизайнерами и Product Owner при декомпозиции задач, согласовании API и сопровождении релизов.</li>
+                  </ul>
+
+                  <div class="chips" aria-label="Стек Quintegro">
+                    <span class="chip">TypeScript</span>
+                    <span class="chip">React</span>
+                    <span class="chip">Next.js (13–16)</span>
+                    <span class="chip">Effector</span>
+                    <span class="chip">GraphQL</span>
+                    <span class="chip">REST</span>
+                    <span class="chip">Tailwind</span>
+                    <span class="chip">Styled Components</span>
+                    <span class="chip">Storybook</span>
+                    <span class="chip">React Aria</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- BiZone -->
+            <article class="job">
+              <div class="period">05.2019 — 05.2021</div>
+              <div>
+                <div class="company">
+                  <a href="https://bi.zone/" target="_blank" rel="noreferrer">BI.ZONE</a>
+                </div>
+                <div class="pos">Junior+ Frontend-разработчик (<strong>React</strong>)</div>
+
+                <div class="desc">
+                  Развитие платформы обнаружения и реагирования на инциденты кибербезопасности (EDR).
+                  <ul>
+                    <li>Участвовал в проектировании frontend-архитектуры highload EDR-платформы (<strong>React</strong>, <strong>Redux</strong>, <strong>Redux-Saga</strong>).</li>
+                    <li>Реализовал модуль отображения и фильтрации потоковых событий в режиме near real-time.</li>
+                    <li>Оптимизировал производительность интерфейса при больших объёмах данных, сократив время рендеринга ключевых экранов на ~30%.</li>
+                    <li>Повысил отказоустойчивость UI при нестабильной работе API.</li>
+                    <li>Внедрил единый подход к асинхронным запросам через <strong>Redux-Saga</strong>.</li>
+                    <li>Внедрил стандарты code review и тестирования (<strong>Jest</strong>, <strong>Mocha</strong>, <strong>React Testing Library</strong>), снизив количество багов в продакшене.</li>
+                  </ul>
+
+                  <div class="chips" aria-label="Стек BI.ZONE">
+                    <span class="chip">React</span>
+                    <span class="chip">Redux</span>
+                    <span class="chip">Redux-Saga</span>
+                    <span class="chip">styled-components</span>
+                    <span class="chip">Webpack</span>
+                    <span class="chip">REST</span>
+                    <span class="chip">Jest</span>
+                    <span class="chip">Mocha</span>
+                    <span class="chip">React Testing Library</span>
+                    <span class="chip">Figma</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Voximplant -->
+            <article class="job">
+              <div class="period">01.2018 — 05.2019</div>
+              <div>
+                <div class="company">
+                  <a href="https://voximplant.ru/" target="_blank" rel="noreferrer">Voximplant</a>
+                </div>
+                <div class="pos">Junior Frontend-разработчик</div>
+
+                <div class="desc">
+                  Верстка сайта компании и участие в разработке визуального редактора сценариев и AI-инструментов для автоматизации общения.
+                  <ul>
+                    <li>Мобильная и адаптивная верстка страниц на <strong>HTML</strong>/<strong>CSS</strong>/<strong>JavaScript</strong>/<strong>jQuery</strong>/<strong>Pug</strong>.</li>
+                    <li>Развитие UI-библиотеки компонентов и интерфейсов продукта на <strong>Vue.js</strong>.</li>
+                    <li>Участие в разработке визуального редактора сценариев на <strong>Vue.js</strong>.</li>
+                    <li>Глубокая работа с legacy-кодом на <strong>jQuery</strong>.</li>
+                    <li><strong>Достижение:</strong> переписал большую часть legacy-кода с <strong>jQuery</strong> на чистый <strong>JavaScript</strong>, улучшив производительность сайта.</li>
+                    <li><strong>Достижение:</strong> участвовал в запуске визуального редактора сценариев в команде 10+ человек.</li>
+                    <li><strong>Достижение:</strong> участвовал в создании UI-библиотеки на <strong>Vue 3</strong> + <strong>TypeScript</strong> (переиспользуемость и единый стиль интерфейса).</li>
+                  </ul>
+
+                  <div class="chips" aria-label="Стек Voximplant">
+                    <span class="chip">Vue.js</span>
+                    <span class="chip">Vue 3</span>
+                    <span class="chip">TypeScript</span>
+                    <span class="chip">HTML/CSS</span>
+                    <span class="chip">JavaScript</span>
+                    <span class="chip">jQuery</span>
+                    <span class="chip">Pug</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- CSS-Live -->
+            <article class="job">
+              <div class="period">02.2012 — 12.2018</div>
+              <div>
+                <div class="company">
+                  <a href="https://css-live.ru/" target="_blank" rel="noreferrer">CSS-Live.ru</a>
+                </div>
+                <div class="pos">Сооснователь и автор профильного ресурса по frontend-разработке (статьи и новости отрасли)</div>
+
+                <div class="desc">
+                  Создал и развивал ресурс, посвящённый глубокому разбору <strong>CSS</strong> и поведения браузерного рендеринга. Проект ориентирован на практические нюансы верстки и спецификацию.
+                  <div class="links" aria-label="Ссылки CSS-Live">
+                    <div><strong>Сайт:</strong> <a href="https://css-live.ru/" target="_blank" rel="noreferrer">css-live.ru</a></div>
+                    <div><strong>Книга:</strong> <a href="https://css-live.ru/articles/obzor-inlajnovyj-kontekst-formatirovaniya.html" target="_blank" rel="noreferrer">Инлайновый контекст форматирования</a></div>
+                    <div class="note">Примеры материалов (можешь заменить на свои актуальные ссылки):</div>
+                    <div>
+                      <a href="https://css-live.ru/faq/put-vertalshhika.html" target="_blank" rel="noreferrer">css-live.ru/faq/put-vertalshhika.html</a>
+                    </div>
+                    <div>
+                      <a href="https://css-live.ru/css/zolotaya-rybka-css3-grid-layout.html" target="_blank" rel="noreferrer">css-live.ru/css/zolotaya-rybka-css3-grid-layout.html</a>
+                    </div>
+                    <div>
+                      <a href="https://css-live.ru/articles/polnyj-kontrol-nad-kontrolnymi-tochkami-v-css-i-v-js.html" target="_blank" rel="noreferrer">css-live.ru/articles/polnyj-kontrol-nad-kontrolnymi-tochkami-v-css-i-v-js.html</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Book details (as part of CSS-Live) -->
+            <article class="job">
+              <div class="period">—</div>
+              <div>
+                <div class="company">
+                  <div style="font-weight:900;">Книга: «Инлайновый контекст форматирования»</div>
+                </div>
+                <div class="desc">
+                  Книга посвящена одной из самых сложных и малоизученных частей CSS-спецификации — визуальному форматированию текста и inline-контексту.
+                  <ul>
+                    <li>алгоритмы формирования строк в inline-контексте;</li>
+                    <li>поведение <strong>line-height</strong>, <strong>baseline</strong>, <strong>vertical-align</strong>;</li>
+                    <li>механика строчных и <strong>inline-block</strong> элементов;</li>
+                    <li>неочевидные особенности браузерного рендеринга;</li>
+                    <li>расхождения между спецификацией и практической реализацией.</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <!-- HTMLForum -->
+            <article class="job">
+              <div class="period">06.2008 — 02.2022</div>
+              <div>
+                <div class="company">
+                  <a href="https://htmlforum.dev" target="_blank" rel="noreferrer">HTMLForum.dev</a>
+                </div>
+                <div class="pos">Администратор и технический модератор профильного сообщества веб-разработчиков</div>
+
+                <div class="desc">
+                  Крупнейшее профильное сообщество веб-разработчиков среди тематических форумов (<strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>).
+                  <ul>
+                    <li>Прошёл путь от активного участника до веб-разработчика (<strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>).</li>
+                    <li>Разбирал сложные кейсы по вёрстке, JavaScript и производительности интерфейсов.</li>
+                    <li>Поддерживал высокий уровень технических дискуссий и качество решений.</li>
+                    <li>Участвовал в развитии структуры и стандартов сообщества.</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- COURSES -->
+        <section class="section">
+          <div class="section-head">
+            <h2>Курсы</h2>
+            <div class="line"></div>
+            <div class="badge" title="Курсы">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+                <path d="M4 19V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v13" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M6 17h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="job" style="grid-template-columns: 120px 1fr;">
+            <div class="period">2008</div>
+            <div>
+              <h3 style="margin:0;">МГТУ им. Н.Э. Баумана</h3>
+              <div class="pos">Расширенные возможности <strong>HTML</strong> и <strong>CSS</strong></div>
+            </div>
+          </div>
+        </section>
+
+        <div class="note" style="margin-top:16px;">
+          Ссылки компаний: <a href="https://www.quintegro.com/" target="_blank" rel="noreferrer">Quintegro</a> ·
+          <a href="https://bi.zone/" target="_blank" rel="noreferrer">BI.ZONE</a> ·
+          <a href="https://voximplant.ru/" target="_blank" rel="noreferrer">Voximplant</a> ·
+          <a href="https://css-live.ru/" target="_blank" rel="noreferrer">CSS-Live</a> ·
+          <a href="https://htmlforum.dev" target="_blank" rel="noreferrer">HTMLForum.dev</a>
+        </div>
+
+      </main>
+    </div>
+  </div>
 </body>
 </html>
