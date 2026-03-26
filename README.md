@@ -1,2 +1,2 @@
 # psywalker.github.io
-Middle+ Frontend Developer (React, Next.js)
+Senior Frontend Developer (React, Next.js)
