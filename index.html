@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Усачёв Максим — Senior Frontend Developer</title>
+  <title>Усачёв Максим — Frontend-разработчик</title>
   <meta
     name="description"
-    content="Резюме Максима Усачёва — Senior Frontend Developer (React / Next.js / TypeScript)"
+    content="Резюме Максима Усачёва — Frontend-разработчик (React / Next.js / TypeScript)"
   />
 
   <style>
@@ -26,6 +26,8 @@
       --stack-text: #103b61;
       --link: #0d4f85;
       --link-hover: #083c67;
+      --link-bg: #edf4fb;
+      --link-border: #d5e4f2;
     }
 
     * {
@@ -214,7 +216,13 @@
       font-size: 22px;
       font-weight: 700;
       text-transform: uppercase;
-      margin-bottom: 16px;
+      margin-bottom: 10px;
+    }
+
+    .top-salary {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 18px;
     }
 
     .top-meta {
@@ -407,18 +415,49 @@
     }
 
     .plain-links div + div {
-      margin-top: 2px;
+      margin-top: 6px;
     }
 
     .plain-link {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 8px;
+      background: var(--link-bg);
+      border: 1px solid var(--link-border);
       color: var(--link);
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 2px;
+      text-decoration: none;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
     }
 
     .plain-link:hover {
+      background: #e3eef8;
+      border-color: #c4d8ec;
       color: var(--link-hover);
+    }
+
+    .info-card {
+      border: 1px solid #d9e4ee;
+      background: #f8fbfe;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+    }
+
+    .info-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .info-card-subtitle {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .info-card-text {
+      font-size: 16px;
+      line-height: 1.45;
     }
 
     .course-item {
@@ -484,7 +523,10 @@
       .course-year,
       .course-school,
       .course-name,
-      .top-preferences {
+      .top-preferences,
+      .info-card-title,
+      .info-card-subtitle,
+      .info-card-text {
         font-size: 15px;
       }
 
@@ -494,6 +536,10 @@
 
       .top-role {
         font-size: 18px;
+      }
+
+      .top-salary {
+        font-size: 20px;
       }
 
       .job,
@@ -567,7 +613,7 @@
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.22.68-.48 0-.24-.01-1.04-.01-1.89-2.78.6-3.37-1.18-3.37-1.18-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.63-1.34-2.22-.26-4.55-1.11-4.55-4.95 0-1.09.39-1.98 1.03-2.67-.1-.25-.45-1.3.1-2.7 0 0 .84-.27 2.75 1.02A9.5 9.5 0 0 1 12 6.8c.85 0 1.71.11 2.51.32 1.91-1.29 2.75-1.02 2.75-1.02.55 1.4.2 2.45.1 2.7.64.69 1.03 1.58 1.03 2.67 0 3.85-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85 0 1.34-.01 2.41-.01 2.74 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12c0-5.52-4.48-10-10-10Z" />
             </svg>
-            <div><a class="contact-link" href="https://github.com/psywalker" target="_blank" rel="noreferrer">https://github.com/psywalker</a></div>
+            <div><a class="contact-link" href="https://github.com/psywalker" target="_blank" rel="noreferrer">github.com/psywalker</a></div>
           </div>
         </div>
 
@@ -578,13 +624,13 @@
           </div>
 
           <div class="side-meta-group">
-            <div class="side-meta-label">Занятость:</div>
+            <div class="side-meta-label">Тип занятости:</div>
             <div>Постоянная работа, подработка</div>
           </div>
 
           <div class="side-meta-group">
             <div class="side-meta-label">Формат работы:</div>
-            <div>Удалённо, гибрид</div>
+            <div>Удалённо, гибрид, на месте работодателя</div>
           </div>
 
           <div class="side-meta-group">
@@ -597,11 +643,12 @@
 
         <div class="skill-group">
           <div class="skill-group-title">Продвинутый уровень</div>
-
           <div class="side-chips">
             <span class="side-chip">Jest</span>
             <span class="side-chip">HTML</span>
+            <span class="side-chip">HTML5</span>
             <span class="side-chip">CSS</span>
+            <span class="side-chip">CSS3</span>
             <span class="side-chip">SCSS</span>
             <span class="side-chip">JavaScript</span>
             <span class="side-chip">jQuery</span>
@@ -609,6 +656,9 @@
             <span class="side-chip">Next.js</span>
             <span class="side-chip">App Router</span>
             <span class="side-chip">Redux</span>
+            <span class="side-chip">Redux-thunk</span>
+            <span class="side-chip">Redux Toolkit</span>
+            <span class="side-chip">RTK Query</span>
             <span class="side-chip">Effector</span>
             <span class="side-chip">TypeScript</span>
             <span class="side-chip">REST API</span>
@@ -617,15 +667,12 @@
             <span class="side-chip">GitHub</span>
             <span class="side-chip">Tailwind CSS</span>
             <span class="side-chip">Figma</span>
-            <span class="side-chip">Redux Toolkit</span>
-            <span class="side-chip">RTK Query</span>
             <span class="side-chip">Agile/Scrum</span>
           </div>
         </div>
 
         <div class="skill-group">
           <div class="skill-group-title">Средний уровень</div>
-
           <div class="side-chips">
             <span class="side-chip">SSR/ISR</span>
             <span class="side-chip">Webpack</span>
@@ -645,7 +692,8 @@
 
       <main class="main">
         <h1 class="top-name">УСАЧЁВ МАКСИМ НИКОЛАЕВИЧ</h1>
-        <div class="top-role">SENIOR FRONTEND DEVELOPER</div>
+        <div class="top-role">FRONTEND-РАЗРАБОТЧИК</div>
+        <div class="top-salary">180 000 ₽ на руки</div>
 
         <div class="top-meta">
           <div class="top-meta-item">
@@ -661,9 +709,16 @@
             </svg>
             <span>Возраст: 41 год</span>
           </div>
+
+          <div class="top-meta-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 5h16v14H4zM7 2h2v4H7zm8 0h2v4h-2zM4 9h16" />
+            </svg>
+            <span>Опыт: 8 лет 1 месяц</span>
+          </div>
         </div>
 
-        <div class="top-preferences" style="display: none; ">
+        <div class="top-preferences">
           <div class="top-preferences-row">
             <span class="top-preferences-label">Тип занятости:</span>
             <span class="top-preferences-value">Постоянная работа, Подработка</span>
@@ -671,7 +726,7 @@
 
           <div class="top-preferences-row">
             <span class="top-preferences-label">Формат работы:</span>
-            <span class="top-preferences-value">Удалённо, Гибрид</span>
+            <span class="top-preferences-value">Удалённо, Гибрид, На месте работодателя</span>
           </div>
 
           <div class="top-preferences-row">
@@ -697,7 +752,7 @@
           </div>
 
           <p class="about-text">
-            Senior Frontend-разработчик (<strong>React / Next.js / TypeScript</strong>) с 8+ годами коммерческого опыта и системным подходом к разработке интерфейсов. Обладаю глубокой экспертизой в <strong>HTML/CSS</strong> и браузерном рендеринге. Разрабатывал highload- и e-commerce-решения, реализовывал полный пользовательский цикл, участвовал в развитии frontend-архитектуры и создании UI-библиотек. Специализируюсь на производительности, масштабируемости и стабильной поставке продукта в Scrum-командах.
+            Frontend-разработчик (<strong>React / Next.js / TypeScript</strong>) с 8+ годами коммерческого опыта и системным подходом к разработке интерфейсов. Обладаю глубокой экспертизой в <strong>HTML/CSS</strong> и браузерном рендеринге (сооснователь CSS-Live, автор книги по inline-форматированию). Разрабатывал highload- и e-commerce-решения, реализовывал полный пользовательский цикл, участвовал в развитии frontend-архитектуры и создании UI-библиотек. Специализируюсь на производительности (<strong>SSR/ISR, GraphQL</strong>), масштабируемости и стабильной поставке продукта в Scrum-командах.
           </p>
         </section>
 
@@ -717,22 +772,11 @@
 
             <div>
               <h3 class="job-company">Quintegro</h3>
-              <div class="job-position">Senior Frontend-разработчик (React, Next.js)</div>
+              <div class="job-position">Frontend-разработчик (React, Next.js)</div>
 
               <div class="job-summary">
                 Разработка маркетплейса RVRentals.com (аренда автодомов в США).
               </div>
-
-              <div class="job-subtitle">Обязанности и достижения:</div>
-              <ul>
-                <li>Реализовал ключевой пользовательский сценарий search + filtering + booking + payment, покрывающий 80%+ пользовательского трафика.</li>
-                <li>Спроектировал модульную архитектуру клиентской части, упростив масштабирование и переиспользование кода.</li>
-                <li>Интегрировал frontend с backend через GraphQL / REST, участвовал в проектировании API-контрактов.</li>
-                <li>Оптимизировал производительность: сократил время загрузки на 34% и объём данных на 27%; снизил bounce rate на 14%.</li>
-                <li>Координировал и развивал внутреннюю UI-библиотеку из 100+ компонентов, ускорив delivery новых фич на 20% и снизив количество UI-багов.</li>
-                <li>Повысил тестовое покрытие до 60–70% и внедрил unit-, contract- и screenshot-тесты, сократив регрессионные и визуальные баги.</li>
-                <li>Стандартизировал code review и внедрил ESLint / Prettier, ускорив ревью и повысив единообразие кодовой базы.</li>
-              </ul>
 
               <div class="job-stack">
                 <div class="job-stack-label">Стек:</div>
@@ -752,8 +796,21 @@
                   <span class="stack-tag">Webpack</span>
                   <span class="stack-tag">Git</span>
                   <span class="stack-tag">CI/CD</span>
+                  <span class="stack-tag">Cursor AI</span>
+                  <span class="stack-tag">Figma</span>
                 </div>
               </div>
+
+              <div class="job-subtitle" style="margin-top: 16px;">Обязанности и достижения:</div>
+              <ul>
+                <li>Реализовал ключевой пользовательский сценарий search → filtering → booking → payment, покрывающий 80%+ пользовательского трафика.</li>
+                <li>Спроектировал модульную архитектуру клиентской части, упростив масштабирование и переиспользование кода.</li>
+                <li>Интегрировал frontend с backend через GraphQL / REST, участвовал в проектировании API-контрактов.</li>
+                <li>Оптимизировал производительность: сократил время загрузки на 34% и объём данных на 27%; снизил bounce rate на 14%.</li>
+                <li>Координировал и развивал внутреннюю UI-библиотеку из 100+ компонентов, ускорив delivery новых фич на 20% и снизив количество UI-багов.</li>
+                <li>Повысил тестовое покрытие до 60–70% и внедрил unit-, contract- и screenshot-тесты, сократив регрессионные и визуальные баги.</li>
+                <li>Стандартизировал code review и внедрил ESLint / Prettier, ускорив ревью и повысив единообразие кодовой базы.</li>
+              </ul>
             </div>
           </article>
         </section>
@@ -770,22 +827,11 @@
 
           <div>
             <h3 class="job-company">BI.ZONE</h3>
-            <div class="job-position">Middle+ Frontend-разработчик (React)</div>
+            <div class="job-position">Frontend-разработчик (React)</div>
 
             <div class="job-summary">
               Развитие платформы обнаружения и реагирования на инциденты кибербезопасности.
             </div>
-
-            <div class="job-subtitle">Обязанности и достижения:</div>
-            <ul>
-              <li>Развивал frontend highload EDR-платформы на React и Redux-стеке.</li>
-              <li>Участвовал в проектировании архитектуры клиентской части и развитии подходов к управлению состоянием приложения.</li>
-              <li>Реализовал модуль отображения и фильтрации потоковых событий кибербезопасности в режиме near real-time для сценариев с обработкой тысяч событий в секунду.</li>
-              <li>Оптимизировал производительность ключевых экранов, сократив время рендеринга примерно на 30%.</li>
-              <li>Повысил отказоустойчивость интерфейса при нестабильной работе API и улучшил качество пользовательского опыта в критичных сценариях.</li>
-              <li>Работал с REST API, асинхронными сценариями и обработкой серверных данных.</li>
-              <li>Внедрил стандарты code review и тестирования, что помогло снизить технический долг и уменьшить количество багов в продакшене.</li>
-            </ul>
 
             <div class="job-stack">
               <div class="job-stack-label">Стек:</div>
@@ -804,6 +850,17 @@
                 <span class="stack-tag">Figma</span>
               </div>
             </div>
+
+            <div class="job-subtitle" style="margin-top: 16px;">Обязанности и достижения:</div>
+            <ul>
+              <li>Развивал frontend highload EDR-платформы на React и Redux-стеке.</li>
+              <li>Участвовал в проектировании архитектуры клиентской части и развитии подходов к управлению состоянием приложения.</li>
+              <li>Реализовал модуль отображения и фильтрации потоковых событий кибербезопасности в режиме near real-time для сценариев с обработкой тысяч событий в секунду.</li>
+              <li>Оптимизировал производительность ключевых экранов, сократив время рендеринга примерно на 30%.</li>
+              <li>Повысил отказоустойчивость интерфейса при нестабильной работе API и улучшил качество пользовательского опыта в критичных сценариях.</li>
+              <li>Работал с REST API, асинхронными сценариями и обработкой серверных данных.</li>
+              <li>Внедрял стандарты code review и тестирования, что помогло снизить технический долг и уменьшить количество багов в продакшене.</li>
+            </ul>
           </div>
         </article>
 
@@ -818,17 +875,6 @@
               Разработка сайтов компании, развитие визуального редактора сценариев и AI-продукта для автоматизации общения.
             </div>
 
-            <div class="job-subtitle">Обязанности и достижения:</div>
-            <ul>
-              <li>Разрабатывал адаптивную и мобильную вёрстку страниц сайта компании.</li>
-              <li>Развивал UI-библиотеку компонентов и интерфейсов продукта на Vue.js.</li>
-              <li>Участвовал в разработке визуального редактора сценариев и AI-инструментов для автоматизации общения.</li>
-              <li>Работал с легаси-кодом на jQuery, занимался его рефакторингом и модернизацией.</li>
-              <li>Переписал значительную часть легаси-кода с jQuery на JavaScript, повысив производительность сайта и упростив дальнейшую поддержку.</li>
-              <li>Участвовал в доработке и запуске визуального редактора сценариев в составе команды из 10+ человек.</li>
-              <li>Участвовал в разработке UI-библиотеки на Vue 3 + TypeScript, обеспечив переиспользуемость компонентов и консистентность интерфейсов.</li>
-            </ul>
-
             <div class="job-stack">
               <div class="job-stack-label">Стек:</div>
               <div class="stack-tags">
@@ -842,28 +888,42 @@
                 <span class="stack-tag">TypeScript</span>
               </div>
             </div>
+
+            <div class="job-subtitle" style="margin-top: 16px;">Обязанности и достижения:</div>
+            <ul>
+              <li>Разрабатывал адаптивную и мобильную вёрстку страниц сайта компании.</li>
+              <li>Развивал UI-библиотеку компонентов и интерфейсов продукта на Vue.js.</li>
+              <li>Участвовал в разработке визуального редактора сценариев и AI-инструментов для автоматизации общения.</li>
+              <li>Работал с легаси-кодом на jQuery, занимался его рефакторингом и модернизацией.</li>
+              <li>Переписал значительную часть легаси-кода с jQuery на JavaScript, повысив производительность сайта и упростив дальнейшую поддержку.</li>
+              <li>Участвовал в доработке и запуске визуального редактора сценариев в составе команды из 10+ человек.</li>
+              <li>Участвовал в разработке UI-библиотеки на Vue 3 + TypeScript, обеспечив переиспользуемость компонентов и консистентность интерфейсов.</li>
+            </ul>
           </div>
         </article>
-      </main>
-    </section>
 
-    <!-- PAGE 3 -->
-    <section class="page">
-      <aside class="sidebar empty"></aside>
+        <section class="section" style="margin-top: 40px;">
+          <div class="section-header">
+            <div class="section-title">Ещё обо мне</div>
+            <div class="section-line"></div>
+            <div class="section-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14l4-4h12c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2Zm-3 8H8v-2h8v2Zm0-3H8V6h8v2Z" />
+              </svg>
+            </div>
+          </div>
 
-      <main class="main">
-        <article class="job" style="margin-top: 6px;">
-          <div class="job-period">02.2012 —&#10;12.2018</div>
-
-          <div>
-            <h3 class="job-company">CSS-Live.ru</h3>
-            <div class="job-position">Сооснователь и автор профильного ресурса по frontend-разработке (статьи и новости отрасли)</div>
-
-            <div class="job-summary">
+          <div class="info-card">
+            <div class="info-card-title">CSS-Live.ru</div>
+            <div class="info-card-subtitle">
+              Сооснователь и автор профильного ресурса по frontend-разработке —
+              <a class="plain-link" href="https://css-live.ru/" target="_blank" rel="noreferrer">css-live.ru</a>
+            </div>
+            <div class="info-card-text">
               Создал и развивал специализированный ресурс, посвящённый глубокому разбору CSS и поведения браузерного рендеринга. Проект был ориентирован не на базовое обучение, а на исследование сложных аспектов спецификации и практических нюансов вёрстки.
             </div>
 
-            <div class="plain-links">
+            <div class="plain-links" style="margin-top: 12px;">
               <div><strong>Некоторые мои статьи:</strong></div>
               <div>
                 <a class="plain-link" href="https://css-live.ru/faq/put-vertalshhika.html" target="_blank" rel="noreferrer">
@@ -882,7 +942,7 @@
               </div>
             </div>
 
-            <div class="plain-links" style="margin-top: 18px;">
+            <div class="plain-links" style="margin-top: 16px;">
               <div><strong>Автор книги — Инлайновый контекст форматирования</strong></div>
               <div>
                 <a class="plain-link" href="https://css-live.ru/articles/obzor-inlajnovyj-kontekst-formatirovaniya.html" target="_blank" rel="noreferrer">
@@ -891,74 +951,124 @@
               </div>
             </div>
 
-            <div class="job-summary" style="margin-top: 18px;">
+            <div class="info-card-text" style="margin-top: 14px;">
               Книга посвящена одной из самых сложных и малоизученных частей CSS-спецификации — визуальному форматированию текста и inline-контексту.
             </div>
 
-            <div class="job-summary" style="margin-bottom: 8px;">
-              В книге подробно разобраны:
-            </div>
-
-            <ul style="margin-bottom: 0;">
+            <ul style="margin-top: 10px; margin-bottom: 0;">
               <li>алгоритмы формирования строк в inline-контексте;</li>
               <li>поведение <strong>line-height</strong>, <strong>baseline</strong>, <strong>vertical-align</strong>;</li>
               <li>механика строчных и <strong>inline-block</strong> элементов;</li>
               <li>неочевидные особенности браузерного рендеринга;</li>
               <li>расхождения между спецификацией и практической реализацией.</li>
             </ul>
-
-            <div class="job-summary" style="margin-top: 16px; margin-bottom: 0;">
-              Издание ориентировано на разработчиков, которые хотят глубоко понимать, как браузер строит layout, а не просто применять CSS декларативно.
-            </div>
           </div>
-        </article>
 
-        <article class="job" style="margin-top: 54px;">
-          <div class="job-period">06.2008 —&#10;02.2022</div>
-
-          <div>
-            <h3 class="job-company">HTMLForum.dev</h3>
-            <div class="job-position">Администратор и технический модератор профильного сообщества веб-разработчиков</div>
-
-            <div class="job-summary">
-              Крупнейшее профильное сообщество веб-разработчиков среди тематических форумов (<strong>HTML, CSS, JavaScript</strong>).
+          <div class="info-card">
+            <div class="info-card-title">HTMLForum.dev</div>
+            <div class="info-card-subtitle">
+              Администратор и технический модератор профильного сообщества веб-разработчиков —
+              <a class="plain-link" href="https://htmlforum.dev" target="_blank" rel="noreferrer">htmlforum.dev</a>
             </div>
-
-            <ul>
+            <div class="info-card-text">
+              Крупнейшее профильное сообщество веб-разработчиков среди тематических форумов (HTML, CSS, JavaScript).
+            </div>
+            <ul style="margin-top: 10px; margin-bottom: 0;">
               <li>Прошёл путь от активного участника до веб-разработчика (HTML, CSS, JavaScript).</li>
               <li>Разбирал сложные кейсы по вёрстке, JavaScript и производительности интерфейсов.</li>
               <li>Поддерживал высокий уровень технических дискуссий и качество решений.</li>
               <li>Участвовал в развитии структуры и стандартов сообщества.</li>
             </ul>
           </div>
-        </article>
-
-        <section class="section" style="margin-top: 48px;">
-          <div class="section-header">
-            <div class="section-title">Курсы</div>
-            <div class="section-line"></div>
-            <div class="section-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm8 1.5V8h4.5" />
-              </svg>
-            </div>
-          </div>
         </section>
       </main>
     </section>
 
-    <!-- PAGE 4 -->
+    <!-- PAGE 3 -->
     <section class="page">
       <aside class="sidebar empty"></aside>
 
       <main class="main">
-        <div class="course-item" style="margin-top: 12px;">
-          <div class="course-year">2008</div>
-          <div>
-            <div class="course-school">МГТУ им. Н.Э. Баумана</div>
-            <div class="course-name">Расширенные возможности HTML и CSS</div>
+        <section class="section" style="margin-top: 6px;">
+          <div class="section-header">
+            <div class="section-title">Образование</div>
+            <div class="section-line"></div>
+            <div class="section-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3Zm-7 9.18V16l7 4 7-4v-3.82l-7 3.82-7-3.82Z" />
+              </svg>
+            </div>
           </div>
-        </div>
+
+          <div class="course-item">
+            <div class="course-year">2004</div>
+            <div>
+              <div class="course-school">Технологический колледж питания</div>
+              <div class="course-name">Менеджер по продажам · Среднее специальное</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" style="margin-top: 44px;">
+          <div class="section-header">
+            <div class="section-title">Рекомендации</div>
+            <div class="section-line"></div>
+            <div class="section-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7 14c-1.66 0-3 1.34-3 3v3h6v-3c0-1.66-1.34-3-3-3Zm10 0c-1.66 0-3 1.34-3 3v3h6v-3c0-1.66-1.34-3-3-3ZM7 4a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm10 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-card-title">Дарья Баева</div>
+            <div class="info-card-subtitle">Директор по продукту · Quintegro</div>
+            <div class="info-card-text">Добавлена как рекомендация в актуальной версии резюме.</div>
+          </div>
+        </section>
+
+        <section class="section" style="margin-top: 44px;">
+          <div class="section-header">
+            <div class="section-title">Тесты и сертификаты</div>
+            <div class="section-line"></div>
+            <div class="section-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Zm-8 14-4-4 1.41-1.41L11 14.17l4.59-4.58L17 11l-6 6Z" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-card-title">HackerRank Skill Certification Test — JavaScript (Intermediate)</div>
+            <div class="info-card-subtitle">HackerRank · 2026</div>
+            <div class="info-card-text">Добавлен как подтверждённый экзамен.</div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-card-title">Расширенные возможности HTML и CSS в МГТУ им. Н.Э. Баумана</div>
+            <div class="info-card-subtitle">Сертификат · 2008</div>
+            <div class="info-card-text">Курс, который можно показывать в отдельном блоке сертификатов.</div>
+          </div>
+        </section>
+
+        <section class="section" style="margin-top: 44px;">
+          <div class="section-header">
+            <div class="section-title">Подтверждённые навыки</div>
+            <div class="section-line"></div>
+            <div class="section-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4Zm-1 16-4-4 1.41-1.41L11 14.17l5.59-5.58L18 10l-7 7Z" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="stack-tags">
+            <span class="stack-tag">CSS</span>
+            <span class="stack-tag">Git</span>
+            <span class="stack-tag">HTML</span>
+            <span class="stack-tag">JavaScript</span>
+          </div>
+        </section>
       </main>
     </section>
   </div>
